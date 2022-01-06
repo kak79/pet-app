@@ -1,4 +1,8 @@
-<div class="image">
-{{ animal.name }}<br> <!-- interpolation -->
-<img id="one" [src]="animal.image_link"> <!-- property binding -->
+<div class="toolbar" role="banner">
+  <h1>{{ animal.name | nameFormat }} </h1>
+</div>
+<div>
+  <div class="image">
+    <img id="one" [src]="animal.image_link"> <!-- property binding -->
+  </div>
 </div>

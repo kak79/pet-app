@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FetchServiceService } from '../services/fetch-service.service';
 
 @Component({
   selector: 'app-zoo-animals',
@@ -9,17 +10,16 @@ export class ZooAnimalsComponent implements OnInit {
   animal:any;
   // idInput:number = 50;
 
-  constructor() { }
+  constructor(private fetchServ: FetchServiceService) { }
 
   ngOnInit(): void {
     this.getZoo();
   }
 
   async getZoo() {
-    let resp = await fetch('https://zoo-animal-api.herokuapp.com/animals/rand');
-    if (resp.status===200) {
-        this.animal = await resp.json();
-    }
+    
+        this.animal = await this.fetchServ.getZoo();
+    
   }
 
 }
